@@ -202,7 +202,6 @@ class FirebaseService {
     //return customized error message and save undefined error info. on the database
     private func handleError(_ error: Error?) -> String? {
         if error == nil { return nil } else {
-            print("this is error: \(error?.localizedDescription)") //..........
             guard let code = (error as? NSError)?.code,
                 let errCode = FIRAuthErrorCode(rawValue: code) else { return Constants.undefinedErrorsMsg }
             guard let message = errorMsgDictionary[errCode] else {
